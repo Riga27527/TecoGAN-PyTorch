@@ -4,7 +4,8 @@ from __future__ import division
 from __future__ import print_function
 
 import numpy as np
-from skimage.measure import compare_ssim
+from skimage.metrics import structural_similarity as compare_ssim
+from skimage.metrics import peak_signal_noise_ratio as compare_psnr
 import torch
 from torch.autograd import Variable
 

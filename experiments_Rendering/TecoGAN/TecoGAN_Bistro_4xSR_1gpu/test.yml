@@ -1,0 +1,40 @@
+# basic configs
+scale: 4
+manual_seed: 0
+verbose: false
+
+
+# dataset configs
+dataset:
+  degradation:
+    type: BI
+
+  test1:
+    name: Bistro_Test
+    gt_seq_dir: ../data/Bistro_Test/GT
+    lr_seq_dir: ../data/Bistro_Test/X4
+    num_worker_per_gpu: 3
+    pin_memory: true
+
+# model configs
+model:
+  name: TecoGAN
+
+  generator:
+    name: FRNet  # frame-recurrent network
+    in_nc: 3
+    out_nc: 3
+    nf: 64
+    nb: 10
+    load_path: ../pretrained_models/G_iter500000.pth
+
+
+# test configs
+test:
+  # whether to save the SR results
+  save_res: true
+  res_dir: results
+
+  # temporal padding
+  padding_mode: reflect
+  num_pad_front: 5

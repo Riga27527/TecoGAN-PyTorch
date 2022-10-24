@@ -16,8 +16,8 @@ def create_dataloader(opt, phase, idx):
     # === create loader for training === #
     if phase == 'train':
         # check dataset
-        assert data_opt['name'] in ('VimeoTecoGAN', 'REDS'), \
-            f'Unknown Dataset: {data_opt["name"]}'
+        # assert data_opt['name'] in ('VimeoTecoGAN', 'REDS'), \
+        #     f'Unknown Dataset: {data_opt["name"]}'
 
         if degradation_type == 'BI':
             # create dataset

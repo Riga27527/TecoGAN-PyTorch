@@ -11,7 +11,7 @@ import cv2
 
 
 def create_lmdb(dataset, raw_dir, lmdb_dir, filter_file=''):
-    assert dataset in ('VimeoTecoGAN', 'REDS'), f'Unknown Dataset: {dataset}'
+    # assert dataset in ('VimeoTecoGAN', 'REDS'), f'Unknown Dataset: {dataset}'
     print(f'>> Start to create lmdb for {dataset}')
 
     # scan dir
@@ -87,7 +87,7 @@ def check_lmdb(dataset, lmdb_dir):
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
-    assert dataset in ('VimeoTecoGAN', 'REDS'), f'Unknown Dataset: {dataset}'
+    # assert dataset in ('VimeoTecoGAN', 'REDS'), f'Unknown Dataset: {dataset}'
     print(f'>> Start to check lmdb dataset: {dataset}.lmdb')
 
     # load keys
@@ -120,11 +120,11 @@ def check_lmdb(dataset, lmdb_dir):
 if __name__ == '__main__':
     # parse args
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, required=True,
+    parser.add_argument('--dataset', type=str, default='Bistro',
                         help='VimeoTecoGAN | REDS')
-    parser.add_argument('--raw_dir', type=str, required=True,
+    parser.add_argument('--raw_dir', type=str, default='../data/Bistro/X4',
                         help='Dir to the raw data')
-    parser.add_argument('--lmdb_dir', type=str, required=True,
+    parser.add_argument('--lmdb_dir', type=str, default='../data/Bistro/X4.lmdb',
                         help='Dir to the lmdb data')
     parser.add_argument('--filter_file', type=str, default='',
                         help='File used to select sequences')
